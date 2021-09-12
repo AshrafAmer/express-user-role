@@ -35,7 +35,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var UserSystem_1 = __importDefault(require("./UserSystem"));
+var ServiceSystem_1 = __importDefault(require("./ServiceSystem"));
+var PaymentSystem_1 = __importDefault(require("./PaymentSystem"));
+var OrderSystem_1 = __importDefault(require("./OrderSystem"));
 var _a = require('sequelize'), Sequelize = _a.Sequelize, DataTypes = _a.DataTypes;
 exports.default = (function () { return __awaiter(void 0, void 0, void 0, function () {
     var sequelize, error_1;
@@ -59,14 +66,10 @@ exports.default = (function () { return __awaiter(void 0, void 0, void 0, functi
                 console.error('Unable to connect to the database:', error_1);
                 return [3 /*break*/, 4];
             case 4:
-                sequelize.User = require("./UserManagement/User")(sequelize, DataTypes);
-                sequelize.Profile = require("./UserManagement/Profile")(sequelize, DataTypes);
-                sequelize.Role = require("./UserManagement/Role")(sequelize, DataTypes);
-                sequelize.Permission = require("./UserManagement/Permission")(sequelize, DataTypes);
-                sequelize.sync({ force: true })
-                    .then(function () {
-                    console.log("Database & tables created!");
-                });
+                (0, UserSystem_1.default)(sequelize, DataTypes);
+                (0, ServiceSystem_1.default)(sequelize, DataTypes);
+                (0, PaymentSystem_1.default)(sequelize, DataTypes);
+                (0, OrderSystem_1.default)(sequelize, DataTypes);
                 return [2 /*return*/];
         }
     });

@@ -1,4 +1,10 @@
+import runUserSystemQueries from "./UserSystem";
+import runServiceSystemQueries from "./ServiceSystem";
+import runPaymentSystemQueries from "./PaymentSystem";
+import runOrderSystemQueries from "./OrderSystem";
+
 const { Sequelize, DataTypes } = require('sequelize');
+
 
 export default async() => {
 
@@ -14,13 +20,8 @@ export default async() => {
         console.error('Unable to connect to the database:', error);
     }
 
-    sequelize.User = require("./UserManagement/User")(sequelize, DataTypes);
-    sequelize.Profile = require("./UserManagement/Profile")(sequelize, DataTypes);
-    sequelize.Role = require("./UserManagement/Role")(sequelize, DataTypes);
-    sequelize.Permission = require("./UserManagement/Permission")(sequelize, DataTypes);
-
-    sequelize.sync({ force: true })
-    .then(() => {
-        console.log(`Database & tables created!`);
-    });
+    runUserSystemQueries(sequelize, DataTypes);
+    runServiceSystemQueries(sequelize, DataTypes);
+    runPaymentSystemQueries(sequelize, DataTypes);
+    runOrderSystemQueries(sequelize, DataTypes);
 }
