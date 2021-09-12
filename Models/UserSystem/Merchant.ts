@@ -1,28 +1,33 @@
 module.exports = (sequelize: any, DataTypes: any) => {
-    const User = sequelize.define('User', 
+    const Merchant = sequelize.define('Merchant', 
         {
-            username: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            password: {
+            email: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
+                unique: true
             },
-            profile_id: {
+            phone: {
                 type: DataTypes.INTEGER(11).UNSIGNED,
-                allowNull: false
+                allowNull: false,
+                unique: true
             },
             status: {
                 type: DataTypes.STRING(20),
                 allowNull: false,
-                defaultValue: 'registered'
+                defaultValue: process.env.USER_STATUS_REGISTERED
             },
         },
         {
-            tableName: 'users'
+            tableName: 'merchants'
         }
     );
+
+
+    Merchant.belongsTo(sequelize.User);
   
-    return User;
+    return Merchant;
 };
