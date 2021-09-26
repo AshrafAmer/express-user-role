@@ -1,7 +1,9 @@
 import requestHandler from "./request";
-import logs from "./logs";
+import requestLogs from "./logs";
+import requestJwt from "./jwt";
 
 export default (server: any, express: any) => {
     requestHandler(server, express);
-    logs(server);
+    requestLogs(server);
+    requestJwt(server);
 }
