@@ -15,3 +15,7 @@ apiRoutes(server);
 server.listen(3000, () => {
     console.log("Server started Successfully...");
 });
+
+server.use((req, res) => {
+    res.status(404).json({ success: false, error: 'Invalid Request'});
+});
