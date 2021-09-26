@@ -17,10 +17,9 @@ export default (server: any) => {
         
         let method = req.method;
         let url = req.url;
-        let status = res.statusCode;
-        let body = method == 'POST' ? JSON.stringify(req.body) : JSON.stringify(req.params);
+        let body = method == 'POST' ? JSON.stringify(req.body) : JSON.stringify(req.query);
         
-        console.log(`[${formatted_date}] ${method}:${url} \n Request: ${body} \n Response: ${status}`);
+        console.log(`[${formatted_date}] ${method}:${url} \n Request: ${body}`);
         
         next();
     });
