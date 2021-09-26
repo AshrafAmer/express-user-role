@@ -1,6 +1,6 @@
 const express = require("express");
 const userRouters = express.Router();
-import {User} from "./userSystem/User";
+import {User} from "../Repository/UserRepository";
 
 userRouters.get("/login", (req: any, res: any) => {
     let user = new User();

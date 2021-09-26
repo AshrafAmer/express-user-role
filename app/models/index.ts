@@ -1,7 +1,7 @@
-import runUserSystemQueries from "./UserSystem";
-import runServiceSystemQueries from "./ServiceSystem";
-import runPaymentSystemQueries from "./PaymentSystem";
-import runOrderSystemQueries from "./OrderSystem";
+import runUserSystemQueries from "../Systems/UserSystem/Models";
+import runServiceSystemQueries from "../Systems/ServiceSystem/Models";
+import runPaymentSystemQueries from "../Systems/PaymentSystem/Models";
+import runOrderSystemQueries from "../Systems/OrderSystem/Models";
 
 const { Sequelize, DataTypes } = require('sequelize');
 

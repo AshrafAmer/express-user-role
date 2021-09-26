@@ -1,9 +1,9 @@
 // import all required packages
 require('dotenv').config();
 import express from "express";
-import dbConnection from "./models";
-import middleWare from "./routes/middleWares";
-import apiRoutes from "./routes/api";
+import dbConnection from "./app/models";
+import middleWare from "./app/routes/middleWares";
+import apiRoutes from "./app/routes/api";
 
 const server = express();
 

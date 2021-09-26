@@ -1,4 +1,4 @@
 export default (server: any) => {
-    const usersRouters = require('./../../controllers/UserController');
+    const usersRouters = require('./../Controllers/UserController');
     server.use("/user", usersRouters);
 }
