@@ -1,15 +1,18 @@
 // import all required packages
 require('dotenv').config();
 import express from "express";
-import dbConnection from "./app/models";
-import middleWare from "./app/routes/middleWares";
-import apiRoutes from "./app/routes/api";
+import db from "./src/Models";
+import apiRoutes from "./src/routes/api";
 
 const server = express();
+const cors = require("cors");
 
-dbConnection();
-middleWare(server, express);
-apiRoutes(server);
+db.authenticate();
+db.sync();
+server.use(cors());
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
+server.use(apiRoutes);
 
 // up our app server
 server.listen(3000, () => {

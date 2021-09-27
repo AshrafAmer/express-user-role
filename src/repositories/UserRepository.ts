@@ -1,12 +1,15 @@
 import {User} from './../Models/User';
 
-export class UserRepository {
+class UserRepository {
     
-    static returnUserByUsername(_username: string) {
+    public returnUserByUsername(_username: string) {
         return User.findOne({ where: {username: _username} });
     }
 
-    static createUser(_username: string, _pass: string) {
+    public createUser(_username: string, _pass: string) {
         return User.create({ username: _username, password: _pass });
     }
 }
+
+
+export const userRepository = new UserRepository();
