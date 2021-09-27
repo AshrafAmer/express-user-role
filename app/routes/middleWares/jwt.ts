@@ -6,7 +6,8 @@ export default (server: any) => {
         //check if user is logged in or not
         if(req.headers._token){
             jwt.verify(req.headers._token, jwtKey, function(err: any, data: any) {
-                if(err) res.status().json({success: false, error: err});
+                if(!req.url.includes('register') && err)
+                    res.status(403).json({success: false, error: err});
                 
                 next();
             });

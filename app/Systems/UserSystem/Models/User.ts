@@ -1,28 +1,27 @@
-module.exports = (sequelize: any, DataTypes: any) => {
-    const User = sequelize.define('User', 
-        {
-            username: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            password: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },
-            profile_id: {
-                type: DataTypes.INTEGER(11).UNSIGNED,
-                allowNull: false
-            },
-            status: {
-                type: DataTypes.STRING(20),
-                allowNull: false,
-                defaultValue: process.env.USER_STATUS_REGISTERED
-            },
+const { DataTypes } = require('sequelize');
+import {sequelize} from './../../../models/sequelize';
+
+export const User = sequelize.define('User', 
+    {
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        {
-            tableName: 'users'
-        }
-    );
-  
-    return User;
-};
+        password: {
+            type: DataTypes.STRING(300),
+            allowNull: false
+        },
+        profile_id: {
+            type: DataTypes.INTEGER(11).UNSIGNED,
+            allowNull: true
+        },
+        status: {
+            type: DataTypes.STRING(20),
+            allowNull: false,
+            defaultValue: process.env.USER_STATUS_REGISTERED
+        },
+    },
+    {
+        tableName: 'users'
+    }
+);

@@ -1,3 +1,5 @@
+import {User} from './../../UserSystem/Models/User';
+
 module.exports = (sequelize: any, DataTypes: any) => {
     const Order = sequelize.define('Order', 
         {
@@ -16,7 +18,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
     );
 
-    Order.belongsTo(sequelize.User);
+    Order.belongsTo(User);
     Order.belongsTo(sequelize.Service);
     Order.belongsTo(sequelize.Payment);
   

@@ -1,12 +1,12 @@
 
-export default (sequelize: any, DataTypes: any) => {
-    sequelize.User = require("./User")(sequelize, DataTypes);
-    sequelize.Merchant = require("./Merchant")(sequelize, DataTypes);
-    sequelize.Profile = require("./Profile")(sequelize, DataTypes);
-    sequelize.Role = require("./Role")(sequelize, DataTypes);
-    sequelize.Permission = require("./Permission")(sequelize, DataTypes);
+export default (sequelize: any) => {
+    sequelize.User = require("./User");
+    sequelize.Merchant = require("./Merchant");
+    sequelize.Profile = require("./Profile");
+    sequelize.Role = require("./Role");
+    sequelize.Permission = require("./Permission");
 
-    sequelize.sync({ force: true })
+    sequelize.sync()
     .then(() => {
         console.log(`User system database & tables created!`);
     });

@@ -1,3 +1,5 @@
+import {User} from './../../UserSystem/Models/User';
+
 module.exports = (sequelize: any, DataTypes: any) => {
     const Ticket = sequelize.define('Ticket', 
         {
@@ -16,7 +18,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
         }
     );
 
-    Ticket.belongsTo(sequelize.User);
+    Ticket.belongsTo(User);
     Ticket.belongsTo(sequelize.Order);
     Ticket.belongsTo(sequelize.Merchant);
   

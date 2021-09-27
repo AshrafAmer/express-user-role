@@ -1,10 +1,12 @@
+import {User} from './../Models/User';
 
-export class User {
-    login(_username: string, _pass: string) {
-      return true;
+export class UserRepository {
+    
+    static returnUserByUsername(_username: string) {
+        return User.findOne({ where: {username: _username} });
     }
 
-    logOut(){
-        // logout logic
+    static createUser(_username: string, _pass: string) {
+        return User.create({ username: _username, password: _pass });
     }
 }
