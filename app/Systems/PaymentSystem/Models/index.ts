@@ -1,7 +1,7 @@
 
-export default (sequelize: any, DataTypes: any) => {
-    sequelize.Payment = require("./Payment")(sequelize, DataTypes);
-    sequelize.PaymentAttribute = require("./PaymentAttribute")(sequelize, DataTypes);
+export default (sequelize: any) => {
+    sequelize.Payment = require("./Payment");
+    sequelize.PaymentAttribute = require("./PaymentAttribute");
 
     sequelize.sync()
     .then(() => {

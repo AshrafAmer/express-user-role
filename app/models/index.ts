@@ -5,9 +5,6 @@ import runOrderSystemQueries from "../Systems/OrderSystem/Models";
 
 import {sequelize} from './sequelize';
 
-const { DataTypes } = require('sequelize');
-
-
 export default async() => {
 
     try {
@@ -18,7 +15,7 @@ export default async() => {
     }
 
     runUserSystemQueries(sequelize);
-    runServiceSystemQueries(sequelize, DataTypes);
-    runPaymentSystemQueries(sequelize, DataTypes);
-    runOrderSystemQueries(sequelize, DataTypes);
+    runServiceSystemQueries(sequelize);
+    runPaymentSystemQueries(sequelize);
+    runOrderSystemQueries(sequelize);
 }

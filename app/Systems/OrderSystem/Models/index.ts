@@ -1,7 +1,7 @@
 
-export default (sequelize: any, DataTypes: any) => {
-    sequelize.Order = require("./Order")(sequelize, DataTypes);
-    sequelize.Ticket = require("./Ticket")(sequelize, DataTypes);
+export default (sequelize: any) => {
+    sequelize.Order = require("./Order");
+    sequelize.Ticket = require("./Ticket");
 
     sequelize.sync()
     .then(() => {

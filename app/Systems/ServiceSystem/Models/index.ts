@@ -1,7 +1,7 @@
 
-export default (sequelize: any, DataTypes: any) => {
-    sequelize.Service = require("./Service")(sequelize, DataTypes);
-    sequelize.FeatureList = require("./FeatureList")(sequelize, DataTypes);
+export default (sequelize: any) => {
+    sequelize.Service = require("./Service");
+    sequelize.FeatureList = require("./FeatureList");
 
     sequelize.sync()
     .then(() => {
