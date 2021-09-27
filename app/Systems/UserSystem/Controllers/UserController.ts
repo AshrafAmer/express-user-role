@@ -8,6 +8,7 @@ import {UserRepository} from './../Repository/UserRepository';
 
 
 userRouters.post("/login", async(req: any, res: any) => {
+    
     if(!(req.body.username && req.body.password)){
         res.status(500).json({success: false, error: 'username and password are required'});
         return
@@ -39,6 +40,7 @@ userRouters.post("/login", async(req: any, res: any) => {
 });
 
 userRouters.post("/register", async(req: any, res: any) => {
+    
     if(!(req.body.username && req.body.password)){
         res.status(500).json({success: false, error: 'username or password is missed'});
         return;

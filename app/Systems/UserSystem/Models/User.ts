@@ -11,10 +11,6 @@ export const User = sequelize.define('User',
             type: DataTypes.STRING(300),
             allowNull: false
         },
-        profile_id: {
-            type: DataTypes.INTEGER(11).UNSIGNED,
-            allowNull: true
-        },
         status: {
             type: DataTypes.STRING(20),
             allowNull: false,
